@@ -1,4 +1,4 @@
-name: pages build and deployment
+name: Deploy GitHub Pages from blog folder
 
 on:
   push:
@@ -6,34 +6,36 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
-  build:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build
-  run: |
-    mkdir -p dist
-    cp -r blog/* dist/
-
+      # Copy blog folder content into dist for deployment
+      - name: Prepare deployment folder
+        run: |
+          mkdir -p dist
+          cp -r blog/* dist/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
-  deploy:
-    needs: build
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
