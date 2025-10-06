@@ -69,8 +69,8 @@
     </div>
 
      <nav>
-     <a href="file:///C:/Users/Vuyisani%20Epeke/Desktop/The%20blog/Resources/page%202.html">Blog</a>
-     <a href="file:///C:/Users/Vuyisani%20Epeke/Desktop/The%20blog/Resources/page%203.html">Contact</a>
+     <a href="page2.html">Blog</a>
+     <a href="page3.html">Contact</a>
   </nav>
 
     <div class="content">
