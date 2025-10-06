@@ -1,4 +1,4 @@
-name: Deploy GitHub Pages from blog folder
+name: Deploy GitHub Pages from Blog folder
 
 on:
   push:
