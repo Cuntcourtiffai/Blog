@@ -3,224 +3,238 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CONTACT — Naija After Dark</title>
+  <title>Contact — Naija After Dark</title>
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
 
   <style>
-    /* --- Variables --- */
     :root {
-      --max-width: 900px;
+      --bg: #fafafa;
       --accent: #111;
-      --muted: #6b6b6b;
+      --muted: #777;
+      --highlight: #e9e9e9;
       --rule: #111;
-      --bg: #fff;
+      --max-width: 900px;
     }
 
-    /* --- Base --- */
     * {
       box-sizing: border-box;
     }
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
+
     body {
+      margin: 0;
       font-family: "Merriweather", serif;
       color: var(--accent);
-      background: var(--bg);
-      padding: 32px 16px;
+      background: linear-gradient(to bottom right, #fff, #f4f4f4);
       display: flex;
       justify-content: center;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      padding: 24px 16px;
     }
 
-    /* --- Main Paper --- */
     .paper {
       width: 100%;
       max-width: var(--max-width);
-      border-top: 8px solid var(--rule);
-      padding: 28px 36px 56px;
-      background: var(--bg);
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      overflow: hidden;
+      border-top: 8px solid var(--accent);
     }
 
     /* --- Header --- */
     .masthead {
+      padding: 40px 32px 24px;
+      border-bottom: 1px solid #ddd;
       display: flex;
-      align-items: baseline;
-      gap: 18px;
-      margin-bottom: 8px;
       flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      background: #fff;
     }
     .masthead .brand {
       font-family: "Playfair Display", serif;
-      font-size: 48px;
+      font-size: 42px;
       font-weight: 700;
-      text-transform: uppercase;
-      color: var(--accent);
-      line-height: 1;
       letter-spacing: -1px;
+      text-transform: uppercase;
     }
     .masthead .meta {
-      margin-left: auto;
-      text-align: right;
-      font-size: 12px;
-      color: var(--muted);
+      font-size: 13px;
       text-transform: uppercase;
+      color: var(--muted);
       letter-spacing: 1px;
-    }
-
-    hr.rule {
-      border: none;
-      height: 1px;
-      background: var(--rule);
-      margin: 18px 0 28px;
-      opacity: 0.85;
+      text-align: right;
     }
 
     /* --- Layout --- */
     .columns {
       display: grid;
-      grid-template-columns: 1fr 360px;
-      gap: 36px;
-      align-items: start;
+      grid-template-columns: 1fr 320px;
+      gap: 40px;
+      padding: 40px 32px;
     }
 
-    /* --- Contact blocks --- */
+    /* --- Contact Blocks --- */
     .contact-blocks {
       font-size: 16px;
-      line-height: 1.6;
+      line-height: 1.7;
     }
+
     .block {
-      margin-bottom: 26px;
-      padding-bottom: 18px;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
       border-bottom: 1px dashed #ddd;
     }
+
     .block h3 {
-      margin: 0 0 8px;
+      font-family: "Playfair Display", serif;
+      font-size: 22px;
+      margin-bottom: 10px;
+      letter-spacing: -0.3px;
+    }
+
+    .block p {
+      margin: 0 0 10px;
+      color: #222;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    /* --- Card --- */
+    .card {
+      padding: 24px 20px;
+      background: var(--bg);
+      border-radius: 12px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 32px;
+    }
+
+    .card h4 {
       font-family: "Playfair Display", serif;
       font-size: 20px;
-      letter-spacing: -0.5px;
-    }
-    .block p {
-      margin: 0;
-      color: #222;
-    }
-    .muted {
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 8px;
+      margin-bottom: 16px;
     }
 
-    /* --- Right Card --- */
-    .card {
-      padding: 20px;
-      border: 1px solid #eee;
-      background: #fafafa;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
-      position: sticky;
-      top: 28px;
-      font-size: 15px;
-      border-radius: 6px;
-    }
     .card .handle {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      margin: 10px 0 14px;
-      font-weight: 700;
-      font-size: 15px;
+      margin-bottom: 14px;
     }
-    .card .handle a {
-      color: var(--accent);
+
+    .card .handle span {
+      display: block;
+      font-size: 14px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .card a {
       text-decoration: none;
-      word-break: break-word;
+      font-weight: 700;
+      color: var(--accent);
     }
-    .card .handle a:hover {
+
+    .card a:hover {
       text-decoration: underline;
     }
+
     .card .cta {
-      margin-top: 12px;
-      font-weight: 700;
+      margin-top: 18px;
       text-transform: uppercase;
-      letter-spacing: 0.6px;
       font-size: 13px;
+      font-weight: 700;
       color: var(--accent);
     }
+
     .small {
       font-size: 13px;
       color: var(--muted);
     }
 
-    /* --- Signature --- */
     .signature {
-      margin-top: 28px;
+      margin-top: 24px;
       font-style: italic;
       color: var(--muted);
       font-size: 13px;
     }
 
-    /* --- Footer --- */
     footer {
       text-align: center;
-      font-size: 13px;
+      padding: 20px;
+      background: var(--highlight);
       color: var(--muted);
-      margin-top: 40px;
+      font-size: 13px;
     }
 
     /* --- Responsive --- */
     @media (max-width: 880px) {
-      .masthead .brand { font-size: 40px; }
-      .columns { grid-template-columns: 1fr; }
-      .card { position: static; margin-top: 24px; }
+      .columns {
+        grid-template-columns: 1fr;
+      }
+      .card {
+        position: static;
+        margin-top: 32px;
+      }
     }
 
     @media (max-width: 480px) {
-      body { padding: 18px 12px; }
-      .paper { padding: 20px; }
-      .masthead .brand { font-size: 34px; }
-      .masthead .meta { text-align: left; width: 100%; margin-left: 0; }
+      .masthead {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .masthead .brand {
+        font-size: 36px;
+      }
+      .columns {
+        padding: 28px 20px;
+      }
+      .paper {
+        border-radius: 0;
+        box-shadow: none;
+        border-top-width: 6px;
+      }
     }
   </style>
 </head>
 
 <body>
   <main class="paper" role="main" aria-labelledby="contact-heading">
-    <header class="masthead" role="banner">
-      <div class="brand" id="contact-heading">CONTACT</div>
+    <header class="masthead">
+      <div class="brand" id="contact-heading">Contact</div>
       <div class="meta">
-        Naija After Dark<br/>
+        Naija After Dark<br>
         soft life • city nights
       </div>
     </header>
 
-    <hr class="rule" />
-
     <section class="columns">
-      <!-- Left -->
-      <div class="contact-blocks" aria-label="Contact templates">
-        <article class="block" id="micro">
+      <!-- Left Column -->
+      <div class="contact-blocks">
+        <article class="block">
           <h3>1) Micro Contact Block</h3>
           <p>Follow the gist. DM the tea.<br>
             Instagram: <strong>@cvntcourtiffai</strong> | X: <strong>@Faye_boi</strong> | TikTok: <strong>@NaijaAfterDark</strong></p>
           <p class="muted">Got tips or confessions? DM me — I read everything.</p>
         </article>
 
-        <article class="block" id="cta">
+        <article class="block">
           <h3>2) Short CTA</h3>
           <p>Want to tell me something no one should know? Slide into my DMs or tag <strong>@NaijaAfterDark</strong>. Anonymous tips welcome.</p>
         </article>
 
-        <article class="block" id="form-text">
+        <article class="block">
           <h3>3) Tip / Confession Form Text</h3>
           <p>Send your story: Who, what, where (short), and one photo if safe. Tell me if you want anonymity.<br>
             DM on Instagram or email: <strong>Ifeanyichimoney[@]gmail.com</strong></p>
         </article>
 
-        <article class="block" id="action-line">
+        <article class="block">
           <h3>4) Social Action Line</h3>
           <p>Follow • Tag • Spill — <strong>@cvntcourtiffai</strong><br>
             I repost the juiciest anonymous confessions. Keep it real, keep it safe.</p>
@@ -229,21 +243,23 @@
         <p class="signature">Naija After Dark — Where soft life meets hard truth.</p>
       </div>
 
-      <!-- Right -->
-      <aside class="card" aria-label="Quick contact">
-        <div style="font-family:'Playfair Display', serif; font-size:18px;">Reach Me</div>
+      <!-- Right Column -->
+      <aside class="card">
+        <h4>Reach Me</h4>
 
         <div class="handle">
           <span>Instagram</span>
           <a href="https://www.instagram.com/cvntcourtiffai" target="_blank">@cvntcourtiffai</a>
         </div>
+
         <div class="handle">
           <span>X (Twitter)</span>
           <a href="https://x.com/Faye_boi" target="_blank">@Faye_boi</a>
         </div>
+
         <div class="handle">
           <span>TikTok</span>
-          <span><strong>@if_fai</strong></span>
+          <strong>@if_fai</strong>
         </div>
 
         <div class="small">
@@ -252,305 +268,13 @@
 
         <div class="cta">Send tips • DM • Anonymous OK</div>
 
-        <div class="muted" style="margin-top:12px;">
-          Pro tip: For anonymous submissions, send only details you’re comfortable sharing—no faces or locations that could identify someone.
-        </div>
+        <p class="muted" style="margin-top: 12px;">
+          Pro tip: For anonymous submissions, send only details you’re comfortable sharing — no faces or locations that could identify someone.
+        </p>
       </aside>
     </section>
+
+    <footer>&copy; CUNTCOURTIFFAI</footer>
   </main>
-
-  <footer>&copy; CUNTCOURTIFFAI</footer>
 </body>
 </html>
-    .block p {
-      margin: 0;
-      color: #222;
-    }
-    .muted {
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 8px;
-    }
-
-    /* --- Right Card --- */
-    .card {
-      padding: 20px;
-      border: 1px solid #eee;
-      background: #fafafa;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
-      position: sticky;
-      top: 28px;
-      font-size: 15px;
-      border-radius: 6px;
-    }
-    .card .handle {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      margin: 10px 0 14px;
-      font-weight: 700;
-      font-size: 15px;
-    }
-    .card .handle a {
-      color: var(--accent);
-      text-decoration: none;
-      word-break: break-word;
-    }
-    .card .handle a:hover {
-      text-decoration: underline;
-    }
-    .card .cta {
-      margin-top: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      font-size: 13px;
-      color: var(--accent);
-    }
-    .small {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    /* --- Signature --- */
-    .signature {
-      margin-top: 28px;
-      font-style: italic;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    /* --- Footer --- */
-    footer {
-      text-align: center;
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 40px;
-    }
-
-    /* --- Responsive --- */
-    @media (max-width: 880px) {
-      .masthead .brand { font-size: 40px; }
-      .columns { grid-template-columns: 1fr; }
-      .card { position: static; margin-top: 24px; }
-    }
-
-    @media (max-width: 480px) {
-      body { padding: 18px 12px; }
-      .paper { padding: 20px; }
-      .masthead .brand { font-size: 34px; }
-      .masthead .meta { text-align: left; width: 100%; margin-left: 0; }
-    }
-  </style>
-</head>
-
-<body>
-  <main class="paper" role="main" aria-labelledby="contact-heading">
-    <header class="masthead" role="banner">
-      <div class="brand" id="contact-heading">CONTACT</div>
-      <div class="meta">
-        Naija After Dark<br/>
-        soft life • city nights
-      </div>
-    </header>
-
-    <hr class="rule" />
-
-    <section class="columns">
-      <!-- Left -->
-      <div class="contact-blocks" aria-label="Contact templates">
-        <article class="block" id="micro">
-          <h3>1) Micro Contact Block</h3>
-          <p>Follow the gist. DM the tea.<br>
-            Instagram: <strong>@cvntcourtiffai</strong> | X: <strong>@Faye_boi</strong> | TikTok: <strong>@NaijaAfterDark</strong></p>
-          <p class="muted">Got tips or confessions? DM me — I read everything.</p>
-        </article>
-
-        <article class="block" id="cta">
-          <h3>2) Short CTA</h3>
-          <p>Want to tell me something no one should know? Slide into my DMs or tag <strong>@NaijaAfterDark</strong>. Anonymous tips welcome.</p>
-        </article>
-
-        <article class="block" id="form-text">
-          <h3>3) Tip / Confession Form Text</h3>
-          <p>Send your story: Who, what, where (short), and one photo if safe. Tell me if you want anonymity.<br>
-            DM on Instagram or email: <strong>Ifeanyichimoney[@]gmail.com</strong></p>
-        </article>
-
-        <article class="block" id="action-line">
-          <h3>4) Social Action Line</h3>
-          <p>Follow • Tag • Spill — <strong>@cvntcourtiffai</strong><br>
-            I repost the juiciest anonymous confessions. Keep it real, keep it safe.</p>
-        </article>
-
-        <p class="signature">Naija After Dark — Where soft life meets hard truth.</p>
-      </div>
-
-      <!-- Right -->
-      <aside class="card" aria-label="Quick contact">
-        <div style="font-family:'Playfair Display', serif; font-size:18px;">Reach Me</div>
-
-        <div class="handle">
-          <span>Instagram</span>
-          <a href="https://www.instagram.com/cvntcourtiffai" target="_blank">@cvntcourtiffai</a>
-        </div>
-        <div class="handle">
-          <span>X (Twitter)</span>
-          <a href="https://x.com/Faye_boi" target="_blank">@Faye_boi</a>
-        </div>
-        <div class="handle">
-          <span>TikTok</span>
-          <span><strong>@if_fai</strong></span>
-        </div>
-
-        <div class="small">
-          Email: <a href="mailto:Ifeanyichimoney@gmail.com">Ifeanyichimoney[@]gmail.com</a>
-        </div>
-
-        <div class="cta">Send tips • DM • Anonymous OK</div>
-
-        <div class="muted" style="margin-top:12px;">
-          Pro tip: For anonymous submissions, send only details you’re comfortable sharing—no faces or locations that could identify someone.
-        </div>
-      </aside>
-    </section>
-  </main>
-
-  <footer>&copy; CUNTCOURTIFFAI</footer>
-</body>
-</html>
-    /* Right column: quick contact card */
-    .card {
-      padding:20px;
-      border:1px solid #eee;
-      background:#fafafa;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.03);
-      position:sticky;
-      top:28px;
-      font-size:15px;
-    }
-    .card .handle {
-      display:flex;
-      gap:10px;
-      margin:10px 0 14px;
-      font-weight:700;
-      font-size:15px;
-      text-transform:none;
-    }
-    .card .cta {
-      margin-top:12px;
-      font-weight:700;
-      text-transform:uppercase;
-      letter-spacing: .6px;
-      font-size:13px;
-      color:var(--accent);
-    }
-    .small {
-      font-size:13px;
-      color:var(--muted);
-    }
-
-    /* Footer small signature */
-    .signature {
-      margin-top:28px;
-      font-style:italic;
-      color:var(--muted);
-      font-size:13px;
-    }
-
-    /* Responsive */
-    @media (max-width:880px){
-      .masthead .brand { font-size:40px }
-      .columns { grid-template-columns: 1fr; }
-      .card { position:static; margin-top:18px; }
-    }
-    @media (max-width:420px){
-      body{padding:18px 12px}
-      .masthead .brand{font-size:34px}
-      .paper{padding:20px}
-    }
-
-
-  </style>
-</head>
-<body>
-  <main class="paper" role="main" aria-labelledby="contact-heading">
-    <header class="masthead" role="banner">
-      <div class="brand" id="contact-heading">CONTACT</div>
-      <div class="meta">
-        Naija After Dark<br/>
-        soft life • city nights
-      </div>
-    </header>
-
-    <hr class="rule" />
-
-    <section class="columns">
-      <!-- Left column: the four micro templates -->
-      <div class="contact-blocks" aria-label="Contact templates">
-        <article class="block" id="micro">
-          <h3>1) Micro Contact Block</h3>
-          <p>Follow the gist. DM the tea.<br/>
-          Instagram: <strong>@cvntcourtiffai</strong> | X: <strong>@Faye_boi</strong> | TikTok: <strong>@NaijaAfterDark</strong></p>
-          <p class="muted">Got tips or confessions? DM me — I read everything.</p>
-        </article>
-
-        <article class="block" id="cta">
-          <h3>2) Short CTA</h3>
-          <p>Want to tell me something no one should know? Slide into my DMs or tag <strong>@NaijaAfterDark</strong>. Anonymous tips welcome.</p>
-        </article>
-
-        <article class="block" id="form-text">
-          <h3>3) Tip / Confession Form Text</h3>
-          <p>Send your story: Who, what, where (short), and one photo if safe. Tell me if you want anonymity.<br/>
-          DM on Instagram or email: <strong>Ifeanyichimoney[@]gmail.com</strong></p>
-        </article>
-
-        <article class="block" id="action-line">
-          <h3>4) Social Action Line</h3>
-          <p>Follow • Tag • Spill — <strong>@cvntcourtiffai</strong><br/>
-          I repost the juiciest anonymous confessions. Keep it real, keep it safe.</p>
-        </article>
-
-        <p class="signature">Naija After Dark — Where soft life meets hard truth.</p>
-      </div>
-
-      <!-- Right column: quick contact card -->
-      <aside class="card" aria-label="Quick contact">
-        <div style="font-family:Playfair Display, serif; font-size:18px;">Reach Me</div>
-
-        <div class="handle">
-          <span>Instagram</span>
-          <a href="https://www.instagram.com/cvntcourtiffai?igsh=MThuZHp4dTVvN2hmaQ=="><span><strong>@cvntcourtiffai</strong></span></a>
-        </div>
-        <div class="handle">
-          <span>X (Twitter)</span>
-          <a href="https://x.com/Faye_boi?t=Sjx3D58NxGo9996yRO3O0A&s=09"><span><strong>@Faye_boi</strong></span></a>
-        </div>
-        <div class="handle">
-          <span>TikTok</span>
-          <span><strong>@if_fai</strong></span>
-        </div>
-
-        <div class="small">Email: <a href="mailto:Ifeanyichimoney[@]gmail.com" style="color:inherit;text-decoration:underline;">Ifeanyichimoney[@]gmail.com</a></div>
-
-        <div class="cta">Send tips • DM • Anonymous OK</div>
-
-        <div class="muted" style="margin-top:12px;">
-          Pro tip: For anonymous submissions, send only details you’re comfortable sharing—no faces or locations that could identify someone.
-        </div>
-      </aside>
-    </section>
-  </main>
-
-     <footer>
-    &copy; CUNTCOURTIFFAI
-  </footer>
-    </div>
-</body>
-</html>
-
-</body>
-</html>
-
-
