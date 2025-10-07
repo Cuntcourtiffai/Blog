@@ -1,549 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sex, Scams, and Soft Life: Urban Naija Exposed!</title>
-
-  <!-- Minimal reset & fonts (system fallback) -->
   <style>
-    :root{
-      --bg-1: #0b0720; /* deep night */
-      --neon-cyan: #00f5ff;
-      --neon-pink: #ff2d95;
-      --accent: #ffc857; /* retro yellow */
-      --paper: #fbf6ef;
-      --text: #e6e1dc;
-      --muted:#bfb7ac;
-      --glitch-speed: 300ms;
-      --max-width: 980px;
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Press+Start+2P&family=Orbitron:wght@700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #f5f5f5;
+      font-family: 'Playfair Display', serif;
+      line-height: 1.8;
+      background-attachment: fixed;
+      overflow-x: hidden;
     }
 
-    /* page reset */
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background:
-        radial-gradient(ellipse at 10% 10%, rgba(255,45,149,0.06) 0%, transparent 12%),
-        radial-gradient(ellipse at 90% 90%, rgba(0,245,255,0.03) 0%, transparent 12%),
-        var(--bg-1);
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.5;
-      padding-bottom:80px;
-      overflow-x:hidden;
+    header {
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2em;
+      text-transform: uppercase;
+      color: #ff00cc;
+      text-shadow: 2px 2px #00ffff;
+      padding: 40px 20px;
+      background: rgba(0, 0, 0, 0.6);
+      border-bottom: 2px dashed #ff00cc;
+      animation: glitch 1.5s infinite;
     }
 
-    /* container */
-    .wrap{
-      max-width:var(--max-width);
-      margin:28px auto;
-      padding:20px;
-      position:relative;
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px #ff00cc; }
+      25% { text-shadow: -2px 2px #00ffff; }
+      50% { text-shadow: 2px -2px #ff00cc; }
+      75% { text-shadow: -2px -2px #00ffff; }
+      100% { text-shadow: 2px 2px #ff00cc; }
     }
 
-    /* header */
-    header.site-header{
-      text-align:center;
-      padding:28px 18px;
-      border-radius:12px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.08));
-      border:1px solid rgba(255,255,255,0.03);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 -6px 40px rgba(255,45,149,0.02);
-      position:relative;
-      overflow:hidden;
+    .content {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 20px rgba(255, 0, 200, 0.2);
+      border-radius: 12px;
     }
 
-    header.site-title{
-      font-family: "Georgia", serif;
-      font-weight:700;
-      font-size:clamp(20px,4vw,34px);
-      letter-spacing:1px;
-      text-transform:uppercase;
-      margin:0;
-      line-height:1.05;
-      color:var(--paper);
-      text-shadow:
-        0 2px 6px rgba(0,0,0,0.7),
-        2px 0 8px rgba(255,45,149,0.06);
+    h2 {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1em;
+      text-transform: uppercase;
+      color: #ff66cc;
+      margin-top: 40px;
+      border-bottom: 2px solid #ff00cc;
+      padding-bottom: 10px;
+      text-shadow: 0 0 5px #ff00cc;
     }
 
-    /* neon subtitle */
-    header .sub{
-      margin-top:8px;
-      font-family:"Courier New", monospace;
-      color:var(--muted);
-      font-size:clamp(12px,2.2vw,16px);
-      letter-spacing:0.6px;
+    p {
+      font-size: 17px;
+      margin-bottom: 20px;
+      text-align: justify;
+      color: #f1f1f1;
     }
 
-    /* glitch effect on header edges */
-    .glitch-bar{
-      position:absolute;
-      inset:auto 0 0 0;
-      height:6px;
-      background:
-        repeating-linear-gradient(90deg, rgba(255,45,149,0.14) 0 4px, rgba(0,245,255,0.12) 4px 8px);
-      mix-blend-mode:overlay;
-      transform:skewY(-2deg);
-      filter:blur(0.3px);
+    img {
+      width: 100%;
+      margin: 20px 0;
+      border: 3px solid #ff00cc;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 0, 204, 0.5);
+      transition: transform 0.4s ease, filter 0.4s ease;
+      filter: grayscale(20%) contrast(120%) brightness(1.1);
+    }
+    img:hover {
+      transform: scale(1.05) rotate(-1deg);
+      filter: grayscale(0%) brightness(1.2);
     }
 
-    /* nav */
-    nav.main-nav{
-      margin:16px 0;
-      text-align:center;
-    }
-    nav.main-nav a{
-      display:inline-block;
-      margin:0 10px;
-      color:var(--muted);
-      text-decoration:none;
-      font-weight:600;
-      font-size:13px;
-      padding:8px 12px;
-      border-radius:8px;
-      transition:all 180ms;
-      background:linear-gradient(90deg, rgba(255,255,255,0.01), transparent);
-    }
-    nav.main-nav a:hover{ color:var(--accent); transform:translateY(-2px); }
-
-    /* blog content box */
-    .content{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));
-      padding:26px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,0.03);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.6);
-      margin-top:18px;
-      position:relative;
-      overflow:hidden;
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      border-top: 2px dashed #ff00cc;
+      font-family: 'Courier New', monospace;
+      color: #ff99ff;
     }
 
-    /* article layout for responsiveness */
-    article.post{
-      max-width:900px;
-      margin:0 auto;
-      color:var(--text);
+    marquee {
+      margin: 40px 0;
+      color: #00ffff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1em;
+      text-shadow: 0 0 5px #ff00ff;
     }
 
-    h2{
-      font-family: 'Georgia', serif;
-      font-size:clamp(18px,3.2vw,26px);
-      color:var(--accent);
-      margin:28px 0 12px;
-      letter-spacing:0.6px;
-      position:relative;
+    nav {
+      text-align: center;
+      margin: 30px 0;
+    }
+    nav a {
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 10px;
+      font-family: 'Orbitron', sans-serif;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ff00cc;
+      text-shadow: 0 0 5px #ff00cc;
     }
 
-    h2::after{
-      content:"";
-      position:absolute;
-      left:0;
-      bottom:-8px;
-      width:50px;
-      height:4px;
-      background:linear-gradient(90deg,var(--neon-pink),var(--neon-cyan));
-      filter:drop-shadow(0 4px 6px rgba(0,0,0,0.5));
-      transform:skewX(-12deg);
+    /* Floating sexy audio player */
+    .audio-player {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: rgba(255, 0, 204, 0.3);
+      backdrop-filter: blur(10px);
+      border: 2px solid #ff00cc;
+      border-radius: 50%;
+      box-shadow: 0 0 20px #ff00cc;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      animation: pulse 3s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px #ff00cc; }
+      50% { box-shadow: 0 0 25px #00ffff; }
+      100% { box-shadow: 0 0 10px #ff00cc; }
     }
 
-    p{
-      margin:14px 0;
-      font-size:clamp(14px,2.2vw,17px);
-      color:rgba(230,225,220,0.95);
-      text-align:justify;
+    audio {
+      width: 0;
+      height: 0;
+      opacity: 0;
     }
 
-    /* image card / polaroid style with glitch overlay */
-    .img-card{
-      position:relative;
-      margin:20px 0;
-      border-radius:6px;
-      overflow:visible;
-      display:block;
-      width:100%;
-      max-width:100%;
-      padding:10px;
-      background:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(255,255,255,0.02));
-      border:3px solid rgba(255,255,255,0.03);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.7);
-    }
-
-    .img-frame{
-      display:block;
-      width:100%;
-      height:auto;
-      border:6px solid #f2e7d3; /* polaroid border */
-      box-shadow: 0 6px 18px rgba(0,0,0,0.6);
-      transform-origin:center;
-      image-rendering: auto;
-      display:block;
-      width:100%;
-      height:auto;
-    }
-
-    /* small torn effect label */
-    .caption{
-      font-family: "Courier New", monospace;
-      font-size:12px;
-      color:var(--muted);
-      margin-top:8px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-
-    /* download overlay button */
-    .download-btn{
-      position:absolute;
-      right:12px;
-      top:12px;
-      background:linear-gradient(180deg, rgba(0,0,0,0.6), rgba(255,255,255,0.03));
-      border:1px solid rgba(255,255,255,0.06);
-      padding:8px 10px;
-      border-radius:8px;
-      font-family: "Courier New", monospace;
-      font-size:13px;
-      color:var(--text);
-      cursor:pointer;
-      z-index:12;
-      backdrop-filter: blur(6px);
-    }
-
-    /* fake scanline + grain overlay to create paparazzi vibe */
-    .grain{
-      pointer-events:none;
-      position:absolute;
-      inset:0;
-      background-image:
-        repeating-linear-gradient(0deg, rgba(255,255,255,0.01) 0 1px, transparent 1px 3px);
-      mix-blend-mode:overlay;
-      opacity:0.12;
-    }
-
-    /* glitch effect on images (animated RGB splits when hovered) */
-    .glitch{
-      position:relative;
-      display:block;
-      isolation:isolate;
-    }
-    .glitch::before,
-    .glitch::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background-repeat:no-repeat;
-      background-position:center;
-      background-size:cover;
-      mix-blend-mode:screen;
-      opacity:0;
-      transition:opacity 220ms linear, transform 220ms linear;
-      pointer-events:none;
-    }
-    .glitch::before{ transform:translate3d(-6px,0,0); filter:opacity(0.7) hue-rotate(-10deg) saturate(130%) }
-    .glitch::after{ transform:translate3d(6px,0,0); filter:opacity(0.6) hue-rotate(30deg) saturate(140%) }
-
-    .glitch:hover::before, .glitch:hover::after{
-      opacity:0.8;
-      transform:translate3d(-14px,0,0);
-    }
-
-    /* small responsive layout */
-    @media (min-width:900px){
-      .columns{
-        display:grid;
-        grid-template-columns: 1fr 340px;
-        gap:20px;
-        align-items:start;
+    @media (max-width: 600px) {
+      header {
+        font-size: 1.3em;
+        padding: 20px 10px;
       }
-      aside.side{
-        position:sticky;
-        top:22px;
+      .content {
+        padding: 15px;
       }
-    }
-
-    /* audio player box */
-    .audio-player{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      margin:18px 0;
-      padding:12px;
-      border-radius:10px;
-      background:linear-gradient(90deg, rgba(255,45,149,0.04), rgba(0,245,255,0.02));
-      border:1px solid rgba(255,255,255,0.03);
-    }
-    .audio-player .meta{
-      font-family:"Courier New", monospace;
-      font-size:13px;
-      color:var(--muted);
-    }
-    .audio-player audio{
-      width:100%;
-      max-width:420px;
-      outline:none;
-    }
-
-    /* footer */
-    footer.site-footer{
-      margin-top:28px;
-      text-align:center;
-      padding:18px;
-      color:var(--muted);
-      font-family:"Courier New", monospace;
-      border-top:1px dashed rgba(255,255,255,0.04);
-    }
-
-    /* animated CTA banner (replaces marquee) */
-    .scroll-banner{
-      margin-top:16px;
-      overflow:hidden;
-      border-radius:8px;
-      padding:6px;
-      background:linear-gradient(90deg, rgba(255,45,149,0.06), rgba(0,245,255,0.04));
-      border:1px solid rgba(255,255,255,0.02);
-    }
-    .scroll-banner .ticker{
-      display:inline-block;
-      white-space:nowrap;
-      animation: ticker 12s linear infinite;
-      font-family:"Courier New", monospace;
-      font-size:14px;
-      color:var(--accent);
-      text-transform:uppercase;
-      letter-spacing:1px;
-    }
-    @keyframes ticker{
-      0%{ transform: translateX(100%) }
-      100%{ transform: translateX(-110%) }
-    }
-
-    /* small utility */
-    .center{ text-align:center }
-    a{ color:inherit }
-
-    /* low-power reduced motion */
-    @media (prefers-reduced-motion: reduce){
-      .glitch::before, .glitch::after, .scroll-banner .ticker { animation:none; transition:none }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header class="site-header">
-      <h1 class="site-title">Sex, Scams, and Soft Life: Urban Naija Exposed!</h1>
-      <div class="sub">Nightlife · Glitch · Retro Paparazzi</div>
-      <div class="glitch-bar"></div>
-    </header>
+  <header>
+    Sex, Scams, and Soft Life: Urban Naija Exposed!
+  </header>
 
-    <nav class="main-nav" aria-label="main">
-      <a href="index.html">Page 1</a>
+  <div class="content">
+
+    <p>
+      Welcome to Lagos, Abuja, PH, Calabar — name any city in Naija! Where the skyline might be reaching for the stars,
+      but the real action happens underground — behind tinted windows, between encrypted chats, and inside the minds of
+      young hustlers who’ve decided the straight path is too slow.
+    </p>
+
+    <p>
+      This isn’t just a city. It’s a stage, and every character is playing for power, paper, and proximity to pleasure.
+      This is a world powered by hookup culture, political entanglements, tech-enabled scams, and the art of social
+      climbing through seduction. It’s messy. It’s calculated. It’s survival of the slickest.
+    </p>
+
+    <h2>How to Sleep with a Politician 101 (Introduction)</h2>
+    <p>... (your existing section content here) ...</p>
+    <img src="https://i.pinimg.com/originals/3b/9e/65/3b9e65c1e8f42179d9536dc16c3f729e.jpg" alt="Politician Scandal" />
+
+    <h2>The World of Hookup</h2>
+    <p>... (your existing hookup content) ...</p>
+    <img src="https://i.pinimg.com/originals/4e/51/04/4e5104f4026cb873c51b9ed9a2af39d7.jpg" alt="Hookup Glam" />
+
+    <h2>Cana (Marijuana), Sex, and Robots: Inside the Yahoo-Yahoo Jungle</h2>
+    <p>... (your existing content) ...</p>
+    <img src="https://i.pinimg.com/originals/2c/7e/d2/2c7ed2e37b2ce6b1d8a0eac07b7f9080.jpg" alt="Yahoo Jungle" />
+
+    <h2>How to Join High Society with Just Your Coochie</h2>
+    <p>... (your existing section content) ...</p>
+    <img src="https://i.pinimg.com/originals/d0/b5/50/d0b550b31d0eb1af43206ce6e1e52ec9.jpg" alt="High Society" />
+
+    <marquee><h2>💋 Secrets of the Soft Life — Scroll Slow, Sip Deep 💄</h2></marquee>
+
+    <nav>
+      <a href="index.html">Page 1</a> |
       <a href="page3.html">Page 3</a>
-      <a href="#read">Read</a>
-      <a href="#about">About</a>
     </nav>
-
-    <div class="content">
-      <div class="grain" aria-hidden="true"></div>
-
-      <article class="post" id="read">
-        <p>Welcome to Lagos, Abuja, PH, Calabar — name any city in Naija! Where the skyline might be reaching for the stars, but the real action happens underground — behind tinted windows, between encrypted chats, and inside the minds of young hustlers who’ve decided the straight path is too slow.</p>
-
-        <p>This isn’t just a city. It’s a stage, and every character is playing for power, paper, and proximity to pleasure. This is a world powered by hookup culture, political entanglements, tech-enabled scams, and the art of social climbing through seduction. It’s messy. It’s calculated. It’s survival of the slickest.</p>
-
-        <h2>How to Sleep with a Politician 101 (Introduction)</h2>
-
-        <p>So, you want to dance with the devil in power? Buckle up. Because sleeping with a politician is not just about dropping panties — it’s a power play, a career move, and if you do it wrong, a one-way ticket to public disgrace. To sleep with a politician is to walk a tightrope. One wrong move and you’re another name in the scandal threads.</p>
-
-        <p>But play it right? You become a whispered legend — the one he can’t forget, the one he can’t control. Your presence in his life is power, and power — when you’re from the trenches — is everything.</p>
-
-        <p>First rule? Never act impressed. If you treat a politician like a god, you become one of the hundreds who already do. But if you act like you belong — like you’ve had dinner with senators since you were 16 — now you’ve got his attention.</p>
-
-        <p>Understand the game: Politicians don’t fall for looks. They fall for mystery, danger, and the illusion of control. You need to be a fantasy he doesn’t even know he has. Don’t give it up too quick. Power players like the build-up. And most importantly? Don’t catch feelings. You’re not there for romance — you’re there for power.</p>
-
-        <!-- Image 1 (Pinterest link preserved) -->
-        <div class="img-card" data-pin-url="https://pin.it/3Z8cobq6g">
-          <a class="pin-link" href="https://pin.it/3Z8cobq6g" target="_blank" rel="noopener noreferrer" aria-label="Open Pinterest link">
-            <img class="img-frame glitch lazy-image" data-src="https://i.pinimg.com/originals/3b/9e/65/3b9e65c1e8f42179d9536dc16c3f729e.jpg" alt="Pinterest Image 1">
-          </a>
-          <button class="download-btn" type="button" data-src="https://i.pinimg.com/originals/3b/9e/65/3b9e65c1e8f42179d9536dc16c3f729e.jpg">Download</button>
-          <div class="caption"><span>Pin: 3Z8cobq6g</span><span class="muted">Urban paparazzi</span></div>
-        </div>
-
-        <h2>The World of Hookup</h2>
-
-        <p>Welcome to the hookup economy—where your body is the product, your vibe is the branding, and survival is the endgame.</p>
-        <p>Being a hookup girl or boy isn’t just about sex—it’s about strategy. Telegram rooms. Twitter circles. Private Snap accounts. It’s sex work, rebranded with aesthetics, crypto wallets, and NDAs. But underneath the glam lies constant danger.</p>
-
-        <p>💸 <strong>Making the Money:</strong></p>
-        <p>• Set your rates. Never stutter when you talk money. Your confidence is part of the price.<br>• Package your brand. Telegram. Twitter. Snapchat. Instagram. Your image is your billboard. Be exclusive. Be unreachable. They pay more when you don’t seem available to everyone.<br>• Don’t give discounts. Ever. If you cut your price, you cut your value.</p>
-
-        <div class="img-card" data-pin-url="https://pin.it/2TN2ynxHk">
-          <a class="pin-link" href="https://pin.it/2TN2ynxHk" target="_blank" rel="noopener noreferrer">
-            <img class="img-frame glitch lazy-image" data-src="https://i.pinimg.com/originals/4e/51/04/4e5104f4026cb873c51b9ed9a2af39d7.jpg" alt="Pinterest Image 2">
-          </a>
-          <button class="download-btn" type="button" data-src="https://i.pinimg.com/originals/4e/51/04/4e5104f4026cb873c51b9ed9a2af39d7.jpg">Download</button>
-          <div class="caption"><span>Pin: 2TN2ynxHk</span><span class="muted">Hookup economy</span></div>
-        </div>
-
-        <h2>Cana (Marijuana), Sex, and Robots: Inside the Yahoo-Yahoo Jungle</h2>
-
-        <p>Welcome to the After Dark, where the Yahoo boys don’t sleep, the weed burns 24/7, and the lines between scam, sex, and survival blur into one long night.</p>
-
-        <div class="img-card" data-pin-url="https://pin.it/3Z3LF4EKA">
-          <a class="pin-link" href="https://pin.it/3Z3LF4EKA" target="_blank" rel="noopener noreferrer">
-            <img class="img-frame glitch lazy-image" data-src="https://i.pinimg.com/originals/2c/7e/d2/2c7ed2e37b2ce6b1d8a0eac07b7f9080.jpg" alt="Pinterest Image 3">
-          </a>
-          <button class="download-btn" type="button" data-src="https://i.pinimg.com/originals/2c/7e/d2/2c7ed2e37b2ce6b1d8a0eac07b7f9080.jpg">Download</button>
-          <div class="caption"><span>Pin: 3Z3LF4EKA</span><span class="muted">After dark</span></div>
-        </div>
-
-        <h2>How to Join High Society with Just Your Coochie</h2>
-
-        <p>You think you need connections to enter high society? Nah. All you need is your cat, your mind, and the ability to reinvent yourself.</p>
-
-        <div class="img-card" data-pin-url="https://pin.it/29dImwv6T">
-          <a class="pin-link" href="https://pin.it/29dImwv6T" target="_blank" rel="noopener noreferrer">
-            <img class="img-frame glitch lazy-image" data-src="https://i.pinimg.com/originals/d0/b5/50/d0b550b31d0eb1af43206ce6e1e52ec9.jpg" alt="Pinterest Image 4">
-          </a>
-          <button class="download-btn" type="button" data-src="https://i.pinimg.com/originals/d0/b5/50/d0b550b31d0eb1af43206ce6e1e52ec9.jpg">Download</button>
-          <div class="caption"><span>Pin: 29dImwv6T</span><span class="muted">Soft life</span></div>
-        </div>
-
-        <!-- scrolling "marquee" replaced by animated banner -->
-        <div class="scroll-banner" role="status" aria-live="polite">
-          <div class="ticker">Click any image to open its Pinterest page — use the download button to save a local copy</div>
-        </div>
-
-        <!-- Aesthetic audio area (replace src with your file or relative path on GitHub) -->
-        <div class="audio-player" aria-label="Audio player">
-          <div class="meta">
-            <div style="font-weight:700">Soundtrack: Night Hustle</div>
-            <div style="font-size:12px">Moody nightlife loop • click play to listen</div>
-          </div>
-          <!-- Replace the src below with your hosted mp3 or a relative path to /assets/your-track.mp3 -->
-          <audio controls preload="none" id="main-audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-      </article>
-    </div>
-
-    <footer class="site-footer">
-      © CUNTCOURTIFFAI
-    </footer>
   </div>
 
-  <!-- Script: prefetch images on scroll, create object URLs, add download behavior -->
-  <script>
-    (function(){
-      // helper: fetch an image and return blob URL
-      async function fetchAsBlobUrl(src){
-        try {
-          const resp = await fetch(src, {mode:'cors'});
-          if(!resp.ok) throw new Error('failed fetch');
-          const blob = await resp.blob();
-          return URL.createObjectURL(blob);
-        } catch (err){
-          console.warn('fetchAsBlobUrl error for', src, err);
-          return src; // fallback to original URL
-        }
-      }
+  <div class="audio-player">
+    <audio autoplay loop>
+      <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Glitch_Artist/Calabrese_Vixen/Glitch_-_9AM_in_Calabrese.mp3" type="audio/mp3">
+    </audio>
+    🔊
+  </div>
 
-      // When image enters viewport (or close), fetch it as blob, set src to blob and set pseudo-glitch backgrounds
-      const lazyImages = Array.from(document.querySelectorAll('.lazy-image'));
-      const options = {
-        root: null,
-        rootMargin: '300px 0px', // start prefetch before it appears
-        threshold: 0.01
-      };
-
-      const onIntersect = async (entries, observer) => {
-        for(const entry of entries){
-          if(entry.isIntersecting){
-            const img = entry.target;
-            // avoid repeated processing
-            if(img.dataset.fetched) { observer.unobserve(img); continue; }
-
-            const src = img.dataset.src || img.getAttribute('src');
-            // fetch and set blob url
-            const blobUrl = await fetchAsBlobUrl(src);
-            img.src = blobUrl;
-            img.dataset.fetched = "1";
-
-            // also set pseudo backgrounds for glitch pseudo elements
-            const parent = img.closest('.img-card') || img.parentElement;
-            if(parent && img.complete){
-              // use inline style so CSS ::before/::after can use computed background (glitch uses background-image copying via style)
-              parent.style.setProperty('--img-url', `url('${blobUrl}')`);
-            }
-
-            // set the ::before and ::after image backgrounds by copying src to style on the image itself
-            img.style.setProperty('background-image', `url('${blobUrl}')`);
-            // Add event listeners: clicking download button will download blob
-            const dl = parent.querySelector('.download-btn');
-            if(dl){
-              dl.addEventListener('click', async function(e){
-                const original = dl.dataset.src || src;
-                // If blob already created, get it (we stored it on img.src)
-                const downloadUrl = img.src || original;
-                // Create a temporary link and click
-                const a = document.createElement('a');
-                a.href = downloadUrl;
-                // create friendly filename
-                const name = original.split('/').pop().split('?')[0] || 'image.jpg';
-                a.download = name;
-                document.body.appendChild(a);
-                a.click();
-                a.remove();
-              });
-            }
-
-            observer.unobserve(img);
-          }
-        }
-      };
-
-      // IntersectionObserver fallback
-      if('IntersectionObserver' in window){
-        const io = new IntersectionObserver(onIntersect, options);
-        lazyImages.forEach(img => io.observe(img));
-      } else {
-        // no IO - just fetch all
-        lazyImages.forEach(async (img) => {
-          const src = img.dataset.src || img.getAttribute('src');
-          const blobUrl = await fetchAsBlobUrl(src);
-          img.src = blobUrl;
-        });
-      }
-
-      // Make image hover glitch pseudo-elements use the same image
-      // The CSS pseudo elements used background from the element itself — to emulate that, copy the image into ::before/::after by setting inline CSS background-image via style sheets.
-      function patchGlitches(){
-        const style = document.createElement('style');
-        style.id = 'glitch-pseudo-styles';
-        document.head.appendChild(style);
-      }
-      patchGlitches();
-
-      // Accessibility: when user clicks the actual image, open Pinterest pin in a new tab (already provided by anchor)
-      // Additional: If you prefer to auto-open on click, remove target attr above; we kept target_blank for safety.
-
-      // Clean up object URLs on page unload to avoid leaks
-      window.addEventListener('unload', function(){
-        document.querySelectorAll('img[data-fetched]').forEach(img=>{
-          try {
-            URL.revokeObjectURL(img.src);
-          } catch(e){}
-        });
-      });
-
-    })();
-  </script>
+  <footer>
+    © CUNTCOURTIFFAI — Scandal, Glitch, Glam & Gossip
+  </footer>
 </body>
 </html>
