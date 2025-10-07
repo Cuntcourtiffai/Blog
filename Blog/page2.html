@@ -4,204 +4,310 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sex, Scams, and Soft Life: Urban Naija Exposed!</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Press+Start+2P&family=Orbitron:wght@700&display=swap');
 
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+
+  <style>
+    /* GLOBAL AESTHETIC */
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      color: #f5f5f5;
-      font-family: 'Playfair Display', serif;
-      line-height: 1.8;
+      background: radial-gradient(circle at 20% 20%, #01010a, #06061a 60%, #0a0a1f);
       background-attachment: fixed;
+      color: #d8f1ff;
+      font-family: 'Share Tech Mono', monospace;
+      line-height: 1.8;
       overflow-x: hidden;
+      position: relative;
     }
 
+    /* Neon grid overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: linear-gradient(transparent 95%, rgba(0,255,255,0.05) 5%), 
+                        linear-gradient(90deg, transparent 95%, rgba(0,255,255,0.05) 5%);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* HEADER */
     header {
       text-align: center;
       font-family: 'Orbitron', sans-serif;
-      font-size: 2em;
-      text-transform: uppercase;
-      color: #ff00cc;
-      text-shadow: 2px 2px #00ffff;
+      font-size: 2.2em;
+      letter-spacing: 2px;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #ff00cc;
       padding: 40px 20px;
-      background: rgba(0, 0, 0, 0.6);
-      border-bottom: 2px dashed #ff00cc;
-      animation: glitch 1.5s infinite;
+      background: rgba(0, 0, 0, 0.5);
+      border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+      backdrop-filter: blur(6px);
+      position: relative;
+      z-index: 2;
     }
 
-    @keyframes glitch {
-      0% { text-shadow: 2px 2px #ff00cc; }
-      25% { text-shadow: -2px 2px #00ffff; }
-      50% { text-shadow: 2px -2px #ff00cc; }
-      75% { text-shadow: -2px -2px #00ffff; }
-      100% { text-shadow: 2px 2px #ff00cc; }
+    header::after {
+      content: "System: ONLINE";
+      position: absolute;
+      right: 20px;
+      bottom: 10px;
+      font-size: 0.6em;
+      color: #ff00cc;
+      opacity: 0.7;
     }
 
+    /* CONTENT */
     .content {
       max-width: 900px;
-      margin: 30px auto;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 0 20px rgba(255, 0, 200, 0.2);
+      margin: 40px auto;
+      padding: 30px;
+      background: rgba(10, 10, 25, 0.7);
+      border: 1px solid rgba(0, 255, 255, 0.2);
       border-radius: 12px;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.05);
+      position: relative;
+      z-index: 1;
     }
 
     h2 {
-      font-family: 'Press Start 2P', cursive;
-      font-size: 1em;
+      font-family: 'Orbitron', sans-serif;
+      color: #00ffff;
       text-transform: uppercase;
-      color: #ff66cc;
+      font-size: 1.1em;
+      border-left: 4px solid #ff00cc;
+      padding-left: 10px;
       margin-top: 40px;
-      border-bottom: 2px solid #ff00cc;
-      padding-bottom: 10px;
-      text-shadow: 0 0 5px #ff00cc;
+      text-shadow: 0 0 10px #00ffff;
     }
 
     p {
-      font-size: 17px;
-      margin-bottom: 20px;
+      font-size: 1rem;
+      color: #cde5ff;
       text-align: justify;
-      color: #f1f1f1;
+      margin-bottom: 18px;
     }
 
     img {
       width: 100%;
-      margin: 20px 0;
-      border: 3px solid #ff00cc;
+      margin: 25px 0;
       border-radius: 10px;
-      box-shadow: 0 0 15px rgba(255, 0, 204, 0.5);
-      transition: transform 0.4s ease, filter 0.4s ease;
-      filter: grayscale(20%) contrast(120%) brightness(1.1);
+      border: 1px solid rgba(0,255,255,0.3);
+      box-shadow: 0 0 20px rgba(0,255,255,0.15);
+      transition: transform 0.5s ease, filter 0.5s ease;
+      filter: grayscale(30%) contrast(110%) brightness(1.05) saturate(120%);
     }
+
     img:hover {
-      transform: scale(1.05) rotate(-1deg);
-      filter: grayscale(0%) brightness(1.2);
+      transform: scale(1.03) rotate(-1deg);
+      filter: grayscale(0%) brightness(1.2) saturate(140%);
     }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.7);
-      border-top: 2px dashed #ff00cc;
-      font-family: 'Courier New', monospace;
-      color: #ff99ff;
-    }
-
+    /* MARQUEE */
     marquee {
       margin: 40px 0;
       color: #00ffff;
       font-family: 'Orbitron', sans-serif;
-      font-size: 1em;
       text-shadow: 0 0 5px #ff00ff;
     }
 
+    /* NAVIGATION */
     nav {
       text-align: center;
-      margin: 30px 0;
+      margin: 40px 0;
     }
+
     nav a {
       color: #00ffff;
       text-decoration: none;
       font-weight: bold;
-      margin: 0 10px;
-      font-family: 'Orbitron', sans-serif;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: #ff00cc;
-      text-shadow: 0 0 5px #ff00cc;
+      margin: 0 12px;
+      position: relative;
     }
 
-    /* Floating sexy audio player */
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: #ff00cc;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a:hover {
+      color: #ff00cc;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      border-top: 1px solid rgba(0,255,255,0.3);
+      color: #66ffff;
+      font-size: 0.9em;
+      letter-spacing: 1px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* FLOATING AUDIO PLAYER - CYBERPUNK CHIP STYLE */
     .audio-player {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: rgba(255, 0, 204, 0.3);
-      backdrop-filter: blur(10px);
-      border: 2px solid #ff00cc;
-      border-radius: 50%;
-      box-shadow: 0 0 20px #ff00cc;
+      bottom: 25px;
+      right: 25px;
       width: 80px;
       height: 80px;
+      border-radius: 50%;
+      border: 2px solid #00ffff;
+      background: rgba(0, 20, 40, 0.8);
+      box-shadow: 0 0 20px #00ffff, inset 0 0 10px #ff00cc;
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 999;
+      cursor: pointer;
       animation: pulse 3s infinite;
+      backdrop-filter: blur(10px);
+      z-index: 999;
     }
+
     @keyframes pulse {
-      0% { box-shadow: 0 0 10px #ff00cc; }
-      50% { box-shadow: 0 0 25px #00ffff; }
-      100% { box-shadow: 0 0 10px #ff00cc; }
+      0% { box-shadow: 0 0 10px #00ffff; }
+      50% { box-shadow: 0 0 30px #ff00cc; }
+      100% { box-shadow: 0 0 10px #00ffff; }
+    }
+
+    .audio-player::after {
+      content: "▶";
+      color: #00ffff;
+      font-size: 1.5em;
+      text-shadow: 0 0 10px #ff00cc;
+      animation: flicker 2s infinite;
+    }
+
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+      }
+      20%, 24%, 55% {
+        opacity: 0.5;
+      }
     }
 
     audio {
-      width: 0;
-      height: 0;
-      opacity: 0;
+      display: none;
     }
 
     @media (max-width: 600px) {
-      header {
-        font-size: 1.3em;
-        padding: 20px 10px;
-      }
-      .content {
-        padding: 15px;
-      }
+      header { font-size: 1.5em; }
+      .content { padding: 20px; }
+      nav a { display: inline-block; margin: 5px; }
     }
   </style>
 </head>
+
 <body>
   <header>
     Sex, Scams, and Soft Life: Urban Naija Exposed!
   </header>
 
   <div class="content">
+    <header>
 
-    <p>
+    Sex, Scams, and Soft Life: Urban Naija Exposed!
+
+  </header>
+
+
+
+  <div class=”content”>
+
+
+
+         <p>
+
       Welcome to Lagos, Abuja, PH, Calabar — name any city in Naija! Where the skyline might be reaching for the stars,
-      but the real action happens underground — behind tinted windows, between encrypted chats, and inside the minds of
-      young hustlers who’ve decided the straight path is too slow.
+
+      But the real action happens underground — behind tinted windows, between encrypted chats, and inside the minds of
+
+      Young hustlers who’ve decided the straight path is too slow.
+
     </p>
 
+
+
     <p>
+
       This isn’t just a city. It’s a stage, and every character is playing for power, paper, and proximity to pleasure.
+
       This is a world powered by hookup culture, political entanglements, tech-enabled scams, and the art of social
-      climbing through seduction. It’s messy. It’s calculated. It’s survival of the slickest.
+
+      Climbing through seduction. It’s messy. It’s calculated. It’s survival of the slickest.
+
     </p>
+
+
+
+
 
     <h2>How to Sleep with a Politician 101 (Introduction)</h2>
 
+
+
     <p>
+
       So, you want to dance with the devil in power? Buckle up. Because sleeping with a politician is not just about
+
       Dropping panties — it’s a power play, a career move, and if you do it wrong, a one-way ticket to public disgrace.
+
       To sleep with a politician is to walk a tightrope. One wrong move and you’re another name in the scandal threads.
+
     </p>
 
+
+
     <p>
+
       But play it right? You become a whispered legend — the one he can’t forget, the one he can’t control. Your
+
       Presence in his life is power, and power — when you’re from the trenches — is everything.
+
     </p>
 
+
+
     <p>
+
       First rule? Never act impressed. If you treat a politician like a god, you become one of the hundreds who already
+
       Do. But if you act like you belong — like you’ve had dinner with senators since you were 16 — now you’ve got his
+
       Attention.
+
     </p>
+
+
 
     <p>
-      Understand the game: Politicians don’t fall for looks. They fall for mystery, danger, and the illusion of control.
-      You need to be a fantasy he doesn’t even know he has. Don’t give it up too quick. Power players like the build-up.
-      And most importantly? Don’t catch feelings. You’re not there for romance — you’re there for power.
-    </p>
-    <img src="https://i.pinimg.com/originals/3b/9e/65/3b9e65c1e8f42179d9536dc16c3f729e.jpg" alt="Politician Scandal" />
 
-    <h2>The World of Hookup</h2>
+      Understand the game: Politicians don’t fall for looks. They fall for mystery, danger, and the illusion of control.
+
+      You need to be a fantasy he doesn’t even know he has. Don’t give it up too quick. Power players like the build-up.
+
+      And most importantly? Don’t catch feelings. You’re not there for romance — you’re there for power.
+
+    </p>
+
+<h2>The World of Hookup</h2>
 
 
 
@@ -255,10 +361,7 @@
 
         <p>A girl who doesn’t know the streets ends up on missing persons posters. A boy who doesn’t learn the ropes gets played by sugar mamas and thrown out broke. Safety becomes a science. Every link-up has an exit plan. Every transaction has a price—and sometimes, that price is your peace.</p>
 
-
-    <img src="https://i.pinimg.com/originals/4e/51/04/4e5104f4026cb873c51b9ed9a2af39d7.jpg" alt="Hookup Glam" />
-
-    <h2>Cana (Marijuana), Sex, and Robots: Inside the Yahoo-Yahoo Jungle</h2>
+<h2>Cana (Marijuana), Sex, and Robots: Inside the Yahoo-Yahoo Jungle</h2>
 
 
 
@@ -298,10 +401,7 @@
 
         <p>The cost is brutal. Mental health disintegrates. Paranoia becomes your roommate. Some girls get so deep in it, they forget where the scam ends and real life begins. The thrill is addictive. The burnout? Deadly.</p>
 
-
-    <img src="https://i.pinimg.com/originals/2c/7e/d2/2c7ed2e37b2ce6b1d8a0eac07b7f9080.jpg" alt="Yahoo Jungle" />
-
-       <h2>How to Join High Society with Just Your Coochie</h2>
+   <h2>How to Join High Society with Just Your Coochie</h2>
 
 
 
@@ -371,28 +471,30 @@
 
  <p><strong>This is not just the hustle. This is the culture.</strong></p>
 
-    <img src="https://i.pinimg.com/originals/d0/b5/50/d0b550b31d0eb1af43206ce6e1e52ec9.jpg" alt="High Society" />
 
-    <marquee><h2>💋 Secrets of the Soft Life — Scroll Slow, Sip Deep 💄</h2></marquee>
-
-    <nav>
-      <a href="index.html">Page 1</a> |
-      <a href="page3.html">Page 3</a>
-    </nav>
   </div>
 
-  <div class="audio-player">
-    <audio controls autoplay loop>
-  <source src="https://cdn.pixabay.com/download/audio/2023/03/07/audio_0cb91822ff.mp3?filename=luxury-139277.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-    </audio>
-    🔊
+  <marquee><h2>💠 Ghost Data Detected — Proceed with Caution 💠</h2></marquee>
+
+  <nav>
+    <a href="index.html">About</a> |
+    <a href="page3.html">Contact info</a>
+  </nav>
+
+  <div class="audio-player" onclick="toggleAudio()">
+    <audio id="bg-audio" src="https://cdn.pixabay.com/download/audio/2023/03/07/audio_0cb91822ff.mp3?filename=luxury-139277.mp3" autoplay loop></audio>
   </div>
 
   <footer>
-    © CUNTCOURTIFFAI
+    © 20XX | CUNTCOURTIFFAI | 
   </footer>
+
+  <script>
+    function toggleAudio() {
+      const audio = document.getElementById('bg-audio');
+      if (audio.paused) audio.play();
+      else audio.pause();
+    }
+  </script>
 </body>
 </html>
-
-
